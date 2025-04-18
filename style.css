@@ -93,8 +93,26 @@ font-weight: 800;
   display: grid;   /* Para que el hero se pueda dividir en columnas */
   grid-template-columns: 1fr 1fr; /* las 2 columnas */
   align-items: center; /* para alinear verticalmente el hero */
-  gap: 2rem; /* que haya espacio de 2rem entre las 2 columnas */
+  gap: 0rem; /* que haya espacio de 2rem entre las 2 columnas */
 
+}
+
+.skills-line {
+  display: flex;
+  gap: 1rem; /* Adjust spacing as you like */
+  font-size: 14px;
+  font-weight: 400;
+  align-items: left;
+  justify-content: left; /* or flex-start if you want it left-aligned */
+}
+
+.skills-line span {
+  white-space: nowrap; /* prevent breaks */
+}
+
+.skills-line span:nth-child(2n) {
+  color: #ff7ebd; /* or something softer like gray */
+  opacity: 0.5;
 }
 
 section{
@@ -109,27 +127,27 @@ section{
 }
 
 .hero-text h1 {
-  font-family: 'Roboto Mono', monospace ;
-  font-size: 50px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 60px;
   line-height: 1;
-  margin: 0 0 30px;
+  margin: 0 0 20px;
 }
 
 .hero-text h4 {
-  font-size: 18;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   margin-top: 10px;
 }
 
 .hero-text p {
-  font-size: 80%;
+  font-size: 100%;
   margin-bottom: 40px;
-  line-height: 1.9;
+  line-height: 1.5;
 }
 
 .hero-img img{
   width: 580px;
-  margin: 10% 0 0 10%;
+  margin: 10% 0 0 5%;
   height: auto;
   transition: transform 1s ease;
 }
@@ -179,7 +197,7 @@ section{
 
 .icons i{
   display: block;
-  margin: 26px 0;
+  margin: 35px 0;
   font-size: 24px;
   transition: all .5s ease;
 }
@@ -216,7 +234,7 @@ section{
 /*mediaqueries para hacerlo responsive*/
 @media (max-width:992px){
   section{
-    padding: 0 3%;
+    padding: 0 5%;
     transition: .2s;
   }
 
@@ -233,19 +251,72 @@ section{
     margin: 5% 0 0 5%;
    }
 
+   .hero-text p{
+    font-size: 70%;
+   }
+
    .icons {
-    position: static; /* elimina absolute */
-    transform: none;
-    display: flex;      /* para que se acomoden en fila */
-    justify-content: center;
-    margin-top: 20px;   /* separalo del texto */
-    padding: 0;
+    display: none;
   }
 
-  .icons i {
-    display: inline-block;
-    margin: 0 10px; /* espacio entre íconos */
+  .scroll-down {
+    display: none;
   }
-}
+  }
 
+/*MOBILE VERSION HERE*/
+@media (max-width: 768px){
+  .menu-icon-action{
+    display: block;
+  }
   
+  #menu-icon{
+    display: block;
+
+  }
+
+  .hero-text{
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .hero-img img{
+    margin: 0;
+  }
+
+  .hero {
+    height: 100%;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .skills-line {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .navlist{
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 200px;
+    height: 190px;
+    background-color: rgba(76, 5, 35, 0.919);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    transition: all .5s ease;
+  }
+  .navlist a{
+    margin-left: 0;
+    display: block;
+    margin: 7px 0;
+  }
+
+  #menu-toggle:checked + label.menu-icon-action + ul {
+    right: 0;
+  }
+
+}
